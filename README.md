@@ -2,6 +2,10 @@
 
 This simple web application demonstrates Method's idempotency feature.
 
+
+https://github.com/user-attachments/assets/37452b3f-f329-4e4d-9f0d-a77e63dcfe7c
+
+
 ## Features
 
 - **Send Request Once**: Make a single payment request
