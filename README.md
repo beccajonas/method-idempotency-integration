@@ -1,45 +1,54 @@
-# Method Idempotency Demo
+# Method API Idempotency Demo
 
-This simple web application demonstrates Method's idempotency feature.
+## Overview
 
+This application allows you to:
 
-https://github.com/user-attachments/assets/37452b3f-f329-4e4d-9f0d-a77e63dcfe7c
+- Send payment requests to the Method API dev sandbox with idempotency keys
+- Test idempotency by sending the same request twice and seeing identical results
+- View payment request responses in a clean JSON format
+- Understand how Method's idempotency feature prevents duplicate processing
 
+## Prerequisites
 
-## Features
+- Node.js (v14 or higher)
+- npm or yarn
+- A Method API key for the dev sandbox (required)
+- Source and destination account IDs from your Method account
 
-- **Send Request Once**: Make a single payment request
-- **Send Same Request Twice**: Demonstrates idempotency by sending the same request twice with the same idempotency key
-- Visual comparison of both requests side-by-side
-- Shows that the second request returns the exact same result as the first
+## Installation
 
-## Setup
+Clone or download this repository
 
-1. Install dependencies:
+Install dependencies:
+
 ```bash
 npm install
 ```
 
-2. Start the server:
+## Running the Application
+
+Start the server:
+
 ```bash
 npm start
 ```
 
-3. Open your browser and navigate to:
+Open your browser and navigate to:
+
 ```
 http://localhost:3000
 ```
 
-## How It Works
+## Usage 
 
-1. Fill out form and hit "Send Request Once" then "Send Same Request Twice" to see idempotency in action
-2. The app will make two requests to Method's API with the same idempotency key
-3. Both requests will show the same payment id, proving that Method only processed the payment once
+- Enter your Method API dev sandbox key in the "API Key" field
+- Fill in the payment form fields
+- Click "Send Request Once" to send the first payment request
+- Click "Send Same Request Twice" to demonstrate idempotency by sending the same request again with the same idempotency key 
 
-## API Details
+## Understanding the Response
 
-The app uses Method's payment API:
-- Endpoint: `https://dev.methodfi.com/payments` (Be sure to use API key for your method DEV environment)
-- Method: POST
-- Headers include the `Idempotency-Key` header which ensures duplicate requests return the same result
+- Both requests return the same payment ID
+- This proves that Method only processed the payment once, even though the request was sent twice
 
